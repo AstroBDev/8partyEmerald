@@ -1185,9 +1185,9 @@ void BtlController_EmitChoosePokemon(u8 bufferId, u8 caseId, u8 slotId, u8 abili
     sBattleBuffersTransferData[1] = caseId;
     sBattleBuffersTransferData[2] = slotId;
     sBattleBuffersTransferData[3] = abilityId;
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < PARTY_SIZE/2; i++)
         sBattleBuffersTransferData[4 + i] = arg4[i];
-    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 8);  // Only 7 bytes were written.
+    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 8);  // Only 7 bytes were written. Now that should be 8 due to new byte from party expansion.
 }
 
 void BtlController_EmitCmd23(u8 bufferId)
@@ -1321,7 +1321,7 @@ void BtlController_EmitChosenMonReturnValue(u8 bufferId, u8 partyId, u8 *battleP
     sBattleBuffersTransferData[1] = partyId;
     for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         sBattleBuffersTransferData[2 + i] = battlePartyOrder[i];
-    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 5);
+    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 6); // +1 extra byte due to expanded party size.
 }
 
 void BtlController_EmitOneReturnValue(u8 bufferId, u16 arg1)

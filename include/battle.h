@@ -381,7 +381,7 @@ struct BattleStruct
     bool8 selectionScriptFinished[MAX_BATTLERS_COUNT];
     u8 field_58[4];
     u8 monToSwitchIntoId[MAX_BATTLERS_COUNT];
-    u8 field_60[4][3];
+    u8 field_60[4][PARTY_SIZE/2]; // This field holds at some point party data for all active battlers so second dimension should be PARTY_SIZE/2
     u8 runTries;
     u8 caughtMonNick[POKEMON_NAME_LENGTH + 1];
     u8 unused_2;
