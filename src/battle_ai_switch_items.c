@@ -65,13 +65,13 @@ static bool8 ShouldSwitchIfWonderGuard(void)
     if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
-            firstId = 0, lastId = 3;
+            firstId = 0, lastId = PARTY_SIZE/2;
         else
-            firstId = 3, lastId = 6;
+            firstId = PARTY_SIZE/2, lastId = PARTY_SIZE;
     }
     else
     {
-        firstId = 0, lastId = 6;
+        firstId = 0, lastId = PARTY_SIZE;
     }
 
     if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
@@ -161,13 +161,13 @@ static bool8 FindMonThatAbsorbsOpponentsMove(void)
     if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
-            firstId = 0, lastId = 3;
+            firstId = 0, lastId = PARTY_SIZE/2;
         else
-            firstId = 3, lastId = 6;
+            firstId = PARTY_SIZE/2, lastId = PARTY_SIZE;
     }
     else
     {
-        firstId = 0, lastId = 6;
+        firstId = 0, lastId = PARTY_SIZE;
     }
 
     if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
@@ -356,13 +356,13 @@ static bool8 FindMonWithFlagsAndSuperEffective(u8 flags, u8 moduloPercent)
     if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == 0)
-            firstId = 0, lastId = 3;
+            firstId = 0, lastId = PARTY_SIZE/2;
         else
-            firstId = 3, lastId = 6;
+            firstId = PARTY_SIZE/2, lastId = PARTY_SIZE;
     }
     else
     {
-        firstId = 0, lastId = 6;
+        firstId = 0, lastId = PARTY_SIZE;
     }
 
     if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
@@ -467,13 +467,13 @@ static bool8 ShouldSwitch(void)
     if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
-            firstId = 0, lastId = 3;
+            firstId = 0, lastId = PARTY_SIZE/2;
         else
-            firstId = 3, lastId = 6;
+            firstId = PARTY_SIZE/2, lastId = PARTY_SIZE;
     }
     else
     {
-        firstId = 0, lastId = 6;
+        firstId = 0, lastId = PARTY_SIZE;
     }
 
     if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
@@ -558,13 +558,13 @@ void AI_TrySwitchOrUseItem(void)
                     if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
                     {
                         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
-                            firstId = 0, lastId = 3;
+                            firstId = 0, lastId = PARTY_SIZE/2;
                         else
-                            firstId = 3, lastId = 6;
+                            firstId = PARTY_SIZE/2, lastId = PARTY_SIZE;
                     }
                     else
                     {
-                        firstId = 0, lastId = 6;
+                        firstId = 0, lastId = PARTY_SIZE;
                     }
 
                     for (monToSwitchId = firstId; monToSwitchId < lastId; monToSwitchId++)
@@ -636,8 +636,8 @@ u8 GetMostSuitableMonToSwitchInto(void)
     u8 invalidMons;
     u16 move;
 
-    if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
-        return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
+    /*if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
+        return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);*/ // Commented out since new party size makes the Struct carry junk data.
     if (gBattleTypeFlags & BATTLE_TYPE_ARENA)
         return gBattlerPartyIndexes[gActiveBattler] + 1;
 
@@ -664,13 +664,13 @@ u8 GetMostSuitableMonToSwitchInto(void)
     if (gBattleTypeFlags & (BATTLE_TYPE_TWO_OPPONENTS | BATTLE_TYPE_TOWER_LINK_MULTI))
     {
         if ((gActiveBattler & BIT_FLANK) == B_FLANK_LEFT)
-            firstId = 0, lastId = 3;
+            firstId = 0, lastId = PARTY_SIZE/2;
         else
-            firstId = 3, lastId = 6;
+            firstId = PARTY_SIZE/2, lastId = PARTY_SIZE;
     }
     else
     {
-        firstId = 0, lastId = 6;
+        firstId = 0, lastId = PARTY_SIZE;
     }
 
     if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
@@ -683,7 +683,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     while (invalidMons != 0x3F) // All mons are invalid.
     {
         bestDmg = 0;
-        bestMonId = 6;
+        bestMonId = PARTY_SIZE;
         // Find the mon whose type is the most suitable offensively.
         for (i = firstId; i < lastId; i++)
         {
@@ -740,7 +740,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     gMoveResultFlags = 0;
     gCritMultiplier = 1;
     bestDmg = 0;
-    bestMonId = 6;
+    bestMonId = PARTY_SIZE;
 
     // If we couldn't find the best mon in terms of typing, find the one that deals most damage.
     for (i = firstId; i < lastId; i++)

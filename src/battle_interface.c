@@ -1436,7 +1436,7 @@ void SwapHpBarsWithHpText(void)
 #define tBattler                data[0]
 #define tSummaryBarSpriteId     data[1]
 #define tBallIconSpriteId(n)    data[3 + n]
-#define tIsBattleStart          data[10]
+#define tIsBattleStart          data[11] // Necessary since data[3+n] overflows onto data[10] when there are 8 pokeballs
 #define tData15                 data[15]
 
 u8 CreatePartyStatusSummarySprites(u8 battlerId, struct HpAndStatus *partyInfo, u8 arg2, bool8 isBattleStart)
@@ -1515,14 +1515,14 @@ u8 CreatePartyStatusSummarySprites(u8 battlerId, struct HpAndStatus *partyInfo, 
 
         if (!isOpponent)
         {
-            gSprites[ballIconSpritesIds[i]].pos1.x += 10 * i + 24;
+            gSprites[ballIconSpritesIds[i]].pos1.x += 8 * i + 24; // Reduced coordinates so ball sprites appear closer together
             gSprites[ballIconSpritesIds[i]].data[1] = i * 7 + 10;
             gSprites[ballIconSpritesIds[i]].pos2.x = 120;
         }
         else
         {
-            gSprites[ballIconSpritesIds[i]].pos1.x -= 10 * (5 - i) + 24;
-            gSprites[ballIconSpritesIds[i]].data[1] = (6 - i) * 7 + 10;
+            gSprites[ballIconSpritesIds[i]].pos1.x -= 8 * (7 - i) + 24; //Changed 5-i to 7-i to avoid negative overflow, not sure if really necessary
+            gSprites[ballIconSpritesIds[i]].data[1] = (8 - i) * 7 + 10; //Changed 6-i to 8-i for same reason
             gSprites[ballIconSpritesIds[i]].pos2.x = -120;
         }
 
@@ -1552,7 +1552,7 @@ u8 CreatePartyStatusSummarySprites(u8 battlerId, struct HpAndStatus *partyInfo, 
         }
         else
         {
-            for (i = 0, var = 5, j = 0; j < PARTY_SIZE; j++)
+            for (i = 0, var = PARTY_SIZE-1, j = 0; j < PARTY_SIZE; j++)
             {
                 if (partyInfo[j].hp == 0xFFFF) // empty slot or an egg
                 {
@@ -1581,7 +1581,7 @@ u8 CreatePartyStatusSummarySprites(u8 battlerId, struct HpAndStatus *partyInfo, 
     {
         if (gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TWO_OPPONENTS))
         {
-            for (var = 5, i = 0; i < PARTY_SIZE; i++)
+            for (var = PARTY_SIZE-1, i = 0; i < PARTY_SIZE; i++)
             {
                 if (partyInfo[i].hp == 0xFFFF) // empty slot or an egg
                 {
@@ -1612,15 +1612,15 @@ u8 CreatePartyStatusSummarySprites(u8 battlerId, struct HpAndStatus *partyInfo, 
                 }
                 else if (partyInfo[j].hp == 0) // fainted mon
                 {
-                    gSprites[ballIconSpritesIds[5 - var]].oam.tileNum += 3;
+                    gSprites[ballIconSpritesIds[PARTY_SIZE-1 - var]].oam.tileNum += 3;
                 }
                 else if (gBattleTypeFlags & BATTLE_TYPE_ARENA && gBattleStruct->arenaLostOpponentMons & gBitTable[j]) // hmm...?
                 {
-                    gSprites[ballIconSpritesIds[5 - var]].oam.tileNum += 3;
+                    gSprites[ballIconSpritesIds[PARTY_SIZE-1 - var]].oam.tileNum += 3;
                 }
                 else if (partyInfo[j].status != 0) // mon with major status
                 {
-                    gSprites[ballIconSpritesIds[5 - var]].oam.tileNum += 2;
+                    gSprites[ballIconSpritesIds[PARTY_SIZE-1 - var]].oam.tileNum += 2;
                 }
                 var++;
             }
@@ -1676,10 +1676,10 @@ void Task_HidePartyStatusSummary(u8 taskId)
         {
             if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
             {
-                gSprites[ballIconSpriteIds[5 - i]].data[1] = 7 * i;
-                gSprites[ballIconSpriteIds[5 - i]].data[3] = 0;
-                gSprites[ballIconSpriteIds[5 - i]].data[4] = 0;
-                gSprites[ballIconSpriteIds[5 - i]].callback = sub_8074158;
+                gSprites[ballIconSpriteIds[PARTY_SIZE-1 - i]].data[1] = 7 * i;
+                gSprites[ballIconSpriteIds[PARTY_SIZE-1 - i]].data[3] = 0;
+                gSprites[ballIconSpriteIds[PARTY_SIZE-1 - i]].data[4] = 0;
+                gSprites[ballIconSpriteIds[PARTY_SIZE-1 - i]].callback = sub_8074158;
             }
             else
             {
