@@ -382,7 +382,7 @@ static const struct TilemapCtrl sContestMoveTilemapCtrl =
 {
     gSummaryScreenAppealJam_Tilemap, 0, 10, 7, 0, 45
 };
-static const s8 sMultiBattleOrder[] = {0, 2, 3, 1, 4, 5};
+static const s8 sMultiBattleOrder[] = {0, 2, 3, 4, 1, 5, 6, 7}; // Defines summary scroll order when on multi battle
 static const struct WindowTemplate sSummaryTemplate[] =
 {
     [PSS_LABEL_WINDOW_POKEMON_INFO_TITLE] = {
@@ -3195,8 +3195,8 @@ static bool8 IsInGamePartnerMon(void)
 {
     if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) && gMain.inBattle)
     {
-        if (sMonSummaryScreen->curMonIndex == 1 || sMonSummaryScreen->curMonIndex == 4 || sMonSummaryScreen->curMonIndex == 5)
-            return TRUE;
+        if (sMonSummaryScreen->curMonIndex == 1 || sMonSummaryScreen->curMonIndex == 5 || sMonSummaryScreen->curMonIndex == 6 || sMonSummaryScreen->curMonIndex == 7)
+            return TRUE; // Adjusted condition to propertly check multi party sizes of 4&4
     }
     return FALSE;
 }
@@ -3313,8 +3313,8 @@ static void PrintHeldItemName(void)
 
     if (sMonSummaryScreen->summary.item == ITEM_ENIGMA_BERRY
         && IsMultiBattle() == TRUE
-        && (sMonSummaryScreen->curMonIndex == 1 || sMonSummaryScreen->curMonIndex == 4 || sMonSummaryScreen->curMonIndex == 5))
-    {
+        && (sMonSummaryScreen->curMonIndex == 1 || sMonSummaryScreen->curMonIndex == 5 || sMonSummaryScreen->curMonIndex == 6 || sMonSummaryScreen->curMonIndex == 7))
+    { //Adjusted condition for 8 sized party partner's indexes
         text = ItemId_GetName(ITEM_ENIGMA_BERRY);
     }
     else if (sMonSummaryScreen->summary.item == ITEM_NONE)

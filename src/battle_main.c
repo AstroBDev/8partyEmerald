@@ -1515,7 +1515,7 @@ static void CB2_PreInitIngamePlayerPartnerBattle(void)
     {
     case 0:
         sMultiPartnerPartyBuffer = Alloc(sizeof(struct UnknownPokemonStruct4) * ARRAY_COUNT(gMultiPartnerParty));
-        sub_80379F8(3);
+        sub_80379F8(MULTI_PARTY_SIZE);
         gBattleCommunication[MULTIUSE_STATE]++;
         *savedCallback = gMain.savedCallback;
         *savedBattleTypeFlags = gBattleTypeFlags;

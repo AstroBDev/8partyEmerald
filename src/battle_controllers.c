@@ -151,8 +151,8 @@ static void InitSinglePlayerBtlControllers(void)
 
         gBattlerPartyIndexes[0] = 0;
         gBattlerPartyIndexes[1] = 0;
-        gBattlerPartyIndexes[2] = 3;
-        gBattlerPartyIndexes[3] = 3;
+        gBattlerPartyIndexes[2] = MULTI_PARTY_SIZE; // Changed so that partner sends its first mon and not player's last
+        gBattlerPartyIndexes[3] = MULTI_PARTY_SIZE;
     }
     else if (!(gBattleTypeFlags & BATTLE_TYPE_DOUBLE))
     {
@@ -254,8 +254,8 @@ static void InitSinglePlayerBtlControllers(void)
 
                 gBattlerPartyIndexes[0] = 0;
                 gBattlerPartyIndexes[1] = 0;
-                gBattlerPartyIndexes[2] = 3;
-                gBattlerPartyIndexes[3] = 3;
+                gBattlerPartyIndexes[2] = MULTI_PARTY_SIZE; // Changed so that partner sends its first mon and not player's last
+                gBattlerPartyIndexes[3] = MULTI_PARTY_SIZE;
             }
             else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
             {
