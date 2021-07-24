@@ -42,28 +42,28 @@ static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
         BlitBitmapToPartyWindow_LeftColumn, 
         {
             //The below are the x, y, width, and height for each of the following info
-            24, 11, 40, 13, // Nickname
-            32, 20, 32,  8, // Level
-            64, 20,  8,  8, // Gender
-            38, 37, 24,  8, // HP
-            53, 37, 24,  8, // Max HP
-            24, 35, 48,  3  // HP bar
+            24,  3, 40, 13, // Nickname
+            24, 12, 32,  8, // Level
+            50, 12,  8,  8, // Gender
+            72,  3, 24,  8, // HP
+            87,  3, 24,  8, // Max HP
+            72, 19, 32,  3  // HP bar
         }, 
-        12, 34, 64, 16      // Description text (e.g. NO USE)
+        60, 4, 64, 16     // Description text (e.g. NO USE)
     },
     [PARTY_BOX_RIGHT_COLUMN] = 
     {
         BlitBitmapToPartyWindow_RightColumn, 
         {
              // See above comment
-             22,  3, 40, 13, // Nickname
-             30, 12, 32,  8, // Level
-             62, 12,  8,  8, // Gender
-            102, 12, 24,  8, // HP
-            117, 12, 24,  8, // Max HP
-             88, 10, 48,  3  // HP bar
+            24,  3, 40, 13, // Nickname
+            24, 12, 32,  8, // Level
+            50, 12,  8,  8, // Gender
+            72,  3, 24,  8, // HP
+            87,  3, 24,  8, // Max HP
+            72, 19, 32,  3  // HP bar
         }, 
-        77, 4, 64, 16        // Description text
+        60, 4, 64, 16        // Description text
     },
 };
 
@@ -75,39 +75,47 @@ static const u8 sPartyMenuSpriteCoords[PARTY_LAYOUT_COUNT][PARTY_SIZE][4 * 2] =
 {
     [PARTY_LAYOUT_SINGLE] = 
     {
-        { 16,  40,  20,  50,  50,  52,  16,  34},
-        {104,  18, 108,  28, 136,  27, 102,  25},
-        {104,  42, 108,  52, 136,  51, 102,  49},
-        {104,  66, 108,  76, 136,  75, 102,  73},
-        {104,  90, 108, 100, 136,  99, 102,  97},
-        {104, 114, 108, 124, 136, 123, 102, 121},
+        { 22,  10,  20,  20,  45,  20,  22,  16},
+        {134,  10, 134,  20, 154,  20, 134,  16},
+        { 22,  42,  20,  51,  45,  52,  22,  48},
+        {134,  42, 134,  51, 154,  52, 134,  48},
+        { 22,  74,  20,  82,  45,  84,  22,  80},
+        {134,  74, 134,  82, 154,  84, 134,  80},
+        { 22, 106,  20, 114,  45, 116,  22, 112},
+        {134, 106, 134, 114, 154, 116, 134, 112},
     },
     [PARTY_LAYOUT_DOUBLE] = 
     {
-        {16, 24, 20, 34, 50, 36, 16, 18},
-        {16, 80, 20, 90, 50, 92, 16, 74},
-        {104, 18, 108, 28, 136, 27, 102, 25},
-        {104, 50, 108, 60, 136, 59, 102, 57},
-        {104, 82, 108, 92, 136, 91, 102, 89},
-        {104, 114, 108, 124, 136, 123, 102, 121},
+        { 22,  10,  20,  20,  45,  20,  22,  16},
+        {134,  10, 134,  20, 154,  20, 134,  16},
+        { 22,  42,  20,  51,  45,  52,  22,  48},
+        {134,  42, 134,  51, 154,  52, 134,  48},
+        { 22,  74,  20,  82,  45,  84,  22,  80},
+        {134,  74, 134,  82, 154,  84, 134,  80},
+        { 22, 106,  20, 114,  45, 116,  22, 112},
+        {134, 106, 134, 114, 154, 116, 134, 112},
     },
     [PARTY_LAYOUT_MULTI] = 
     {
-        {16, 24, 20, 34, 50, 36, 16, 18},
-        {16, 80, 20, 90, 50, 92, 16, 74},
-        {104, 26, 106, 36, 136, 35, 102, 33},
-        {104, 50, 106, 60, 136, 59, 102, 57},
-        {104, 82, 106, 92, 136, 91, 102, 89},
-        {104, 106, 106, 116, 136, 115, 102, 113},
+        { 22,  10,  20,  20,  45,  20,  22,  16},
+        {134,  10, 134,  20, 154,  20, 134,  16},
+        { 22,  42,  20,  51,  45,  52,  22,  48},
+        {134,  42, 134,  51, 154,  52, 134,  48},
+        { 22,  74,  20,  82,  45,  84,  22,  80},
+        {134,  74, 134,  82, 154,  84, 134,  80},
+        { 22, 106,  20, 114,  45, 116,  22, 112},
+        {134, 106, 134, 114, 154, 116, 134, 112},
     },
     [PARTY_LAYOUT_MULTI_SHOWCASE] = 
     {
-        {16, 32, 20, 42, 50, 44, 16, 26},
-        {104, 34, 106, 44, 136, 43, 102, 41},
-        {104, 58, 106, 68, 136, 67, 102, 65},
-        {16, 104, 20, 114, 50, 116, 16, 98},
-        {104, 106, 106, 116, 136, 115, 102, 113},
-        {104, 130, 106, 140, 136, 139, 102, 137},
+        { 22,  10,  20,  20,  45,  20,  22,  16},
+        {134,  10, 134,  20, 154,  20, 134,  16},
+        { 22,  42,  20,  51,  45,  52,  22,  48},
+        {134,  42, 134,  51, 154,  52, 134,  48},
+        { 22,  74,  20,  82,  45,  84,  22,  80},
+        {134,  74, 134,  82, 154,  84, 134,  80},
+        { 22, 106,  20, 114,  45, 116,  22, 112},
+        {134, 106, 134, 114, 154, 116, 134, 112},
     },
 };
 
@@ -131,56 +139,74 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate[] =
     {
         .bg = 0,
         .tilemapLeft = 1,
-        .tilemapTop = 3,
-        .width = 10,
-        .height = 7,
+        .tilemapTop = 0,
+        .width = 14,
+        .height = 4,
         .paletteNum = 3,
         .baseBlock = 0x63,
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 1,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 15,
+        .tilemapTop = 0,
+        .width = 14,
+        .height = 4,
         .paletteNum = 4,
-        .baseBlock = 0xA9,
+        .baseBlock = 0x9C, 
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
+        .tilemapLeft = 1,
         .tilemapTop = 4,
-        .width = 18,
-        .height = 3,
+        .width = 14,
+        .height = 4,
         .paletteNum = 5,
-        .baseBlock = 0xDF,
+        .baseBlock = 0xD5,
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 7,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 15,
+        .tilemapTop = 4,
+        .width = 14,
+        .height = 4,
         .paletteNum = 6,
-        .baseBlock = 0x115,
+        .baseBlock = 0x10E,
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 10,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 1,
+        .tilemapTop = 8,
+        .width = 14,
+        .height = 4,
         .paletteNum = 7,
-        .baseBlock = 0x14B,
+        .baseBlock = 0x147,
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 13,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 15,
+        .tilemapTop = 8,
+        .width = 14,
+        .height = 4,
         .paletteNum = 8,
-        .baseBlock = 0x181,
+        .baseBlock = 0x180,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 12,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 9,
+        .baseBlock = 0x1B9,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 12,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 10,
+        .baseBlock = 0x1F2, 
     },
     {
         .bg = 2,
@@ -189,7 +215,7 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate[] =
         .width = 28,
         .height = 4,
         .paletteNum = 14,
-        .baseBlock = 0x1DF,
+        .baseBlock = 0x250, //1DF used to be last used block on template
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -199,56 +225,74 @@ static const struct WindowTemplate sDoublePartyMenuWindowTemplate[] =
     {
         .bg = 0,
         .tilemapLeft = 1,
-        .tilemapTop = 1,
-        .width = 10,
-        .height = 7,
+        .tilemapTop = 0,
+        .width = 14,
+        .height = 4,
         .paletteNum = 3,
         .baseBlock = 0x63,
     },
     {
         .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 0,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 4,
+        .baseBlock = 0x9C, 
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 4,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 5,
+        .baseBlock = 0xD5,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 4,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 6,
+        .baseBlock = 0x10E,
+    },
+    {
+        .bg = 0,
         .tilemapLeft = 1,
         .tilemapTop = 8,
-        .width = 10,
-        .height = 7,
-        .paletteNum = 4,
-        .baseBlock = 0xA9,
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 1,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 5,
-        .baseBlock = 0xEF,
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 5,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 6,
-        .baseBlock = 0x125,
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 9,
-        .width = 18,
-        .height = 3,
+        .width = 14,
+        .height = 4,
         .paletteNum = 7,
-        .baseBlock = 0x15B,
+        .baseBlock = 0x147,
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 13,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 15,
+        .tilemapTop = 8,
+        .width = 14,
+        .height = 4,
         .paletteNum = 8,
-        .baseBlock = 0x191,
+        .baseBlock = 0x180,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 12,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 9,
+        .baseBlock = 0x1B9,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 12,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 10,
+        .baseBlock = 0x1F2, 
     },
     {
         .bg = 2,
@@ -257,7 +301,7 @@ static const struct WindowTemplate sDoublePartyMenuWindowTemplate[] =
         .width = 28,
         .height = 4,
         .paletteNum = 14,
-        .baseBlock = 0x1DF,
+        .baseBlock = 0x250, 
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -267,56 +311,74 @@ static const struct WindowTemplate sMultiPartyMenuWindowTemplate[] =
     {
         .bg = 0,
         .tilemapLeft = 1,
-        .tilemapTop = 1,
-        .width = 10,
-        .height = 7,
+        .tilemapTop = 0,
+        .width = 14,
+        .height = 4,
         .paletteNum = 3,
         .baseBlock = 0x63,
     },
     {
         .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 0,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 4,
+        .baseBlock = 0x9C, 
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 4,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 5,
+        .baseBlock = 0xD5,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 4,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 6,
+        .baseBlock = 0x10E,
+    },
+    {
+        .bg = 0,
         .tilemapLeft = 1,
         .tilemapTop = 8,
-        .width = 10,
-        .height = 7,
-        .paletteNum = 4,
-        .baseBlock = 0xA9,
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 2,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 5,
-        .baseBlock = 0xEF,
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 5,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 6,
-        .baseBlock = 0x125,
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 9,
-        .width = 18,
-        .height = 3,
+        .width = 14,
+        .height = 4,
         .paletteNum = 7,
-        .baseBlock = 0x15B,
+        .baseBlock = 0x147,
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 12,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 15,
+        .tilemapTop = 8,
+        .width = 14,
+        .height = 4,
         .paletteNum = 8,
-        .baseBlock = 0x191,
+        .baseBlock = 0x180,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 12,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 9,
+        .baseBlock = 0x1B9,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 12,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 10,
+        .baseBlock = 0x1F2, 
     },
     {
         .bg = 2,
@@ -325,7 +387,7 @@ static const struct WindowTemplate sMultiPartyMenuWindowTemplate[] =
         .width = 28,
         .height = 4,
         .paletteNum = 14,
-        .baseBlock = 0x1DF,
+        .baseBlock = 0x250, //1DF used to be last used block on template
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -335,56 +397,83 @@ static const struct WindowTemplate sShowcaseMultiPartyMenuWindowTemplate[] =
     {
         .bg = 0,
         .tilemapLeft = 1,
-        .tilemapTop = 2,
-        .width = 10,
-        .height = 7,
+        .tilemapTop = 0,
+        .width = 14,
+        .height = 4,
         .paletteNum = 3,
         .baseBlock = 0x63,
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 3,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 5,
-        .baseBlock = 0xA9,
+        .tilemapLeft = 15,
+        .tilemapTop = 0,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 4,
+        .baseBlock = 0x9C, 
     },
     {
         .bg = 0,
-        .tilemapLeft = 12,
-        .tilemapTop = 6,
-        .width = 18,
-        .height = 3,
+        .tilemapLeft = 1,
+        .tilemapTop = 4,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 5,
+        .baseBlock = 0xD5,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 4,
+        .width = 14,
+        .height = 4,
         .paletteNum = 6,
-        .baseBlock = 0xDF,
+        .baseBlock = 0x10E,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 8,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 7,
+        .baseBlock = 0x147,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 8,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 8,
+        .baseBlock = 0x180,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 1,
+        .tilemapTop = 12,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 9,
+        .baseBlock = 0x1B9,
+    },
+    {
+        .bg = 0,
+        .tilemapLeft = 15,
+        .tilemapTop = 12,
+        .width = 14,
+        .height = 4,
+        .paletteNum = 10,
+        .baseBlock = 0x1F2, 
     },
     {
         .bg = 2,
         .tilemapLeft = 1,
-        .tilemapTop = 11,
-        .width = 10,
-        .height = 7,
-        .paletteNum = 4,
-        .baseBlock = 0x115,
-    },
-    {
-        .bg = 2,
-        .tilemapLeft = 12,
-        .tilemapTop = 12,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 7,
-        .baseBlock = 0x16B,
-    },
-    {
-        .bg = 2,
-        .tilemapLeft = 12,
         .tilemapTop = 15,
-        .width = 18,
-        .height = 3,
-        .paletteNum = 8,
-        .baseBlock = 0x1A1,
+        .width = 28,
+        .height = 4,
+        .paletteNum = 14,
+        .baseBlock = 0x250, //1DF used to be last used block on template
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -397,7 +486,7 @@ static const struct WindowTemplate sCancelButtonWindowTemplate =
     .width = 6,
     .height = 2,
     .paletteNum = 3,
-    .baseBlock = 0x1C7,
+    .baseBlock = 0x238,
 };
 
 static const struct WindowTemplate sMultiCancelButtonWindowTemplate =
@@ -408,7 +497,7 @@ static const struct WindowTemplate sMultiCancelButtonWindowTemplate =
     .width = 6,
     .height = 2,
     .paletteNum = 3,
-    .baseBlock = 0x1C7,
+    .baseBlock = 0x238,//0x1F8,
 };
 
 static const struct WindowTemplate sConfirmButtonWindowTemplate =
@@ -419,7 +508,7 @@ static const struct WindowTemplate sConfirmButtonWindowTemplate =
     .width = 6,
     .height = 2,
     .paletteNum = 3,
-    .baseBlock = 0x1D3,
+    .baseBlock = 0x244,
 };
 
 static const struct WindowTemplate sDefaultPartyMsgWindowTemplate =
@@ -430,7 +519,7 @@ static const struct WindowTemplate sDefaultPartyMsgWindowTemplate =
     .width = 21,
     .height = 2,
     .paletteNum = 15,
-    .baseBlock = 0x24F,
+    .baseBlock = 0x280, //2B6
 };
 
 static const struct WindowTemplate sDoWhatWithMonMsgWindowTemplate =
@@ -441,7 +530,7 @@ static const struct WindowTemplate sDoWhatWithMonMsgWindowTemplate =
     .width = 16,
     .height = 2,
     .paletteNum = 15,
-    .baseBlock = 0x279,
+    .baseBlock = 0x2AA, //2E1
 };
 
 static const struct WindowTemplate sDoWhatWithItemMsgWindowTemplate =
@@ -452,7 +541,7 @@ static const struct WindowTemplate sDoWhatWithItemMsgWindowTemplate =
     .width = 20,
     .height = 2,
     .paletteNum = 15,
-    .baseBlock = 0x299,
+    .baseBlock = 0x2CA,
 };
 
 static const struct WindowTemplate sDoWhatWithMailMsgWindowTemplate =
@@ -463,7 +552,7 @@ static const struct WindowTemplate sDoWhatWithMailMsgWindowTemplate =
     .width = 18,
     .height = 2,
     .paletteNum = 15,
-    .baseBlock = 0x299,
+    .baseBlock = 0x2CA,
 };
 
 static const struct WindowTemplate sWhichMoveMsgWindowTemplate =
@@ -474,7 +563,7 @@ static const struct WindowTemplate sWhichMoveMsgWindowTemplate =
     .width = 16,
     .height = 2,
     .paletteNum = 15,
-    .baseBlock = 0x299,
+    .baseBlock = 0x2CA,
 };
 
 static const struct WindowTemplate sAlreadyHoldingOneMsgWindowTemplate =
@@ -485,7 +574,7 @@ static const struct WindowTemplate sAlreadyHoldingOneMsgWindowTemplate =
     .width = 20,
     .height = 4,
     .paletteNum = 15,
-    .baseBlock = 0x299,
+    .baseBlock = 0x2CA,
 };
 
 static const struct WindowTemplate sItemGiveTakeWindowTemplate =
@@ -496,7 +585,7 @@ static const struct WindowTemplate sItemGiveTakeWindowTemplate =
     .width = 6,
     .height = 6,
     .paletteNum = 14,
-    .baseBlock = 0x39D,
+    .baseBlock = 0x3CE,
 };
 
 static const struct WindowTemplate sMailReadTakeWindowTemplate =
@@ -507,7 +596,7 @@ static const struct WindowTemplate sMailReadTakeWindowTemplate =
     .width = 8,
     .height = 6,
     .paletteNum = 14,
-    .baseBlock = 0x39D,
+    .baseBlock = 0x3CE,
 };
 
 static const struct WindowTemplate sMoveSelectWindowTemplate =
@@ -518,7 +607,7 @@ static const struct WindowTemplate sMoveSelectWindowTemplate =
     .width = 10,
     .height = 8,
     .paletteNum = 14,
-    .baseBlock = 0x2E9,
+    .baseBlock = 0x31A,
 };
 
 static const struct WindowTemplate sPartyMenuYesNoWindowTemplate =
@@ -529,7 +618,7 @@ static const struct WindowTemplate sPartyMenuYesNoWindowTemplate =
     .width = 5,
     .height = 4,
     .paletteNum = 14,
-    .baseBlock = 0x2E9,
+    .baseBlock = 0x31A,
 };
 
 static const struct WindowTemplate sLevelUpStatsWindowTemplate =
@@ -540,7 +629,7 @@ static const struct WindowTemplate sLevelUpStatsWindowTemplate =
     .width = 10,
     .height = 11,
     .paletteNum = 14,
-    .baseBlock = 0x2E9,
+    .baseBlock = 0x31A,
 };
 
 static const struct WindowTemplate sUnusedWindowTemplate1 =
@@ -566,33 +655,30 @@ static const struct WindowTemplate sUnusedWindowTemplate2 =
 };
 
 // Tile nums
-static const u8 sMainSlotTileNums[] = {24, 25, 25, 25, 25, 25, 25, 25, 25, 26,
-                                       32, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                       32, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                       32, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                       40, 59, 60, 58, 58, 58, 58, 58, 58, 61,
-                                       15, 16, 16, 16, 16, 16, 16, 16, 16, 17,
-                                       46, 47, 47, 47, 47, 47, 47, 47, 47, 48};
+static const u8 sMainSlotTileNums[] = {24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26,
+                                       32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
+                                       40, 41, 41, 41, 41, 41, 41, 59, 60, 58, 58, 58, 58, 61,
+                                       46, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 48};
 
-static const u8 sMainSlotTileNums_Egg[] = {24, 25, 25, 25, 25, 25, 25, 25, 25, 26,
-                                           32, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                           32, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                           32, 33, 33, 33, 33, 33, 33, 33, 33, 34,
-                                           40, 41, 41, 41, 41, 41, 41, 41, 41, 42,
-                                           15, 16, 16, 16, 16, 16, 16, 16, 16, 17,
-                                           46, 47, 47, 47, 47, 47, 47, 47, 47, 48};
+static const u8 sMainSlotTileNums_Egg[] = {24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26,
+                                           32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
+                                           15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 17,
+                                           46, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 48};
 
-static const u8 sOtherSlotsTileNums[] = {43, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 45,
-                                         49, 33, 33, 33, 33, 33, 33, 33, 33, 52, 53, 51, 51, 51, 51, 51, 51, 54,
-                                         55, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57};
+static const u8 sOtherSlotsTileNums[] = {24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26,
+                                         32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
+                                         40, 41, 41, 41, 41, 41, 41, 59, 60, 58, 58, 58, 58, 61,
+                                         46, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 48};
 
-static const u8 sOtherSlotsTileNums_Egg[] = {43, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 44, 45,
-                                             49, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 50,
-                                             55, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 56, 57};
+static const u8 sOtherSlotsTileNums_Egg[] = {24, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 26,
+                                             32, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 34,
+                                             15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 17,
+                                             46, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 48};
 
-static const u8 sEmptySlotTileNums[] = {21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23,
-                                        30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31,
-                                        37, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 39};
+static const u8 sEmptySlotTileNums[] = {21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23,
+                                        30,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 31,
+                                        30,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 31,
+                                        37, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 39};
 
 // Palette offsets
 static const u8 sGenderPalOffsets[] = {11, 12};
