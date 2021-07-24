@@ -4002,9 +4002,10 @@ void SwitchPartyOrder(u8 battler)
     u8 partyId2;
 
     // gBattleStruct->field_60[battler][i]
+    // Following accesses to field_60 used 0*3+i+(u8), this needs to be changed to 0*4+i+(u8) to accomodate 8 pokemon
 
     for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
-        gBattlePartyCurrentOrder[i] = *(battler * 3 + i + (u8*)(gBattleStruct->field_60));
+        gBattlePartyCurrentOrder[i] = *(battler * PARTY_SIZE/2 + i + (u8*)(gBattleStruct->field_60));
 
     partyId1 = GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[battler]);
     partyId2 = GetPartyIdFromBattlePartyId(*(gBattleStruct->monToSwitchIntoId + battler));
@@ -4014,15 +4015,15 @@ void SwitchPartyOrder(u8 battler)
     {
         for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         {
-            *(battler * 3 + i + (u8*)(gBattleStruct->field_60)) = gBattlePartyCurrentOrder[i];
-            *(BATTLE_PARTNER(battler) * 3 + i + (u8*)(gBattleStruct->field_60)) = gBattlePartyCurrentOrder[i];
+            *(battler * PARTY_SIZE/2 + i + (u8*)(gBattleStruct->field_60)) = gBattlePartyCurrentOrder[i];
+            *(BATTLE_PARTNER(battler) * PARTY_SIZE/2 + i + (u8*)(gBattleStruct->field_60)) = gBattlePartyCurrentOrder[i];
         }
     }
     else
     {
         for (i = 0; i < (int)ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         {
-            *(battler * 3 + i + (u8*)(gBattleStruct->field_60)) = gBattlePartyCurrentOrder[i];
+            *(battler * PARTY_SIZE/2 + i + (u8*)(gBattleStruct->field_60)) = gBattlePartyCurrentOrder[i];
         }
     }
 }

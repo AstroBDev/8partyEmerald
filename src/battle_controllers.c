@@ -1172,9 +1172,9 @@ void BtlController_EmitChooseItem(u8 bufferId, u8 *arg1)
     s32 i;
 
     sBattleBuffersTransferData[0] = CONTROLLER_OPENBAG;
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < PARTY_SIZE/2; i++)
         sBattleBuffersTransferData[1 + i] = arg1[i];
-    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 4);
+    PrepareBufferDataTransfer(bufferId, sBattleBuffersTransferData, 5); //Extra byte
 }
 
 void BtlController_EmitChoosePokemon(u8 bufferId, u8 caseId, u8 slotId, u8 abilityId, u8 *arg4)
