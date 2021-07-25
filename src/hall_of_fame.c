@@ -162,19 +162,22 @@ static const struct CompressedSpritePalette sSpritePalette_Confetti[] =
 
 static const s16 sHallOfFame_MonFullTeamPositions[PARTY_SIZE][4] =
 {
-    {120,   210,    120,    40},
-    {326,   220,    56,     40},
-    {-86,   220,    184,    40},
-    {120,   -62,    120,    88},
-    {-70,   -92,    200,    88},
-    {310,   -92,    40,     88}
+    {120,   210,    90,     40},
+    {326,   220,    26,     40},
+    {-86,   220,    154,    40},
+    {208,   40,     208,    40},
+    {120,   -62,    90,     88},
+    {26,    -92,    26,     88},
+    {154,   -92,    154,    88},
+    {208,   -92,    208,    88}
 };
 
 static const s16 sHallOfFame_MonHalfTeamPositions[PARTY_SIZE / 2][4] =
 {
-    {120,   234,    120,    64},
-    {326,   244,    56,     64},
-    {-86,   244,    184,    64}
+    {120,   210,    90,     50},
+    {326,   220,    26,     50},
+    {-86,   220,    154,    50},
+    {208,   50,     208,    50},
 };
 
 static const struct OamData sOamData_Confetti =
