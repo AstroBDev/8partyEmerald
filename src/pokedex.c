@@ -4258,10 +4258,10 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
                 retVal = 1;
             else
             {
-                gSaveBlock2Ptr->pokedex.seen[index] &= ~mask;
-                gSaveBlock1Ptr->seen1[index] &= ~mask;
-                gSaveBlock1Ptr->seen2[index] &= ~mask;
-                retVal = 0;
+                /*gSaveBlock2Ptr->pokedex.seen[index] &= ~mask; // Commenting out these mask resets and setting the return to 1 
+                gSaveBlock1Ptr->seen1[index] &= ~mask;		// seems to make the pokedex menu/data work again for reasons i do not know
+                gSaveBlock1Ptr->seen2[index] &= ~mask;*/
+                retVal = 1;
             }
         }
         break;
@@ -4274,11 +4274,11 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
                 retVal = 1;
             else
             {
-                gSaveBlock2Ptr->pokedex.owned[index] &= ~mask;
+                /*gSaveBlock2Ptr->pokedex.owned[index] &= ~mask;
                 gSaveBlock2Ptr->pokedex.seen[index] &= ~mask;
                 gSaveBlock1Ptr->seen1[index] &= ~mask;
-                gSaveBlock1Ptr->seen2[index] &= ~mask;
-                retVal = 0;
+                gSaveBlock1Ptr->seen2[index] &= ~mask;*/
+                retVal = 1;
             }
         }
         break;

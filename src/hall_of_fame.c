@@ -162,7 +162,7 @@ static const struct CompressedSpritePalette sSpritePalette_Confetti[] =
 
 static const s16 sHallOfFame_MonFullTeamPositions[PARTY_SIZE][4] =
 {
-    {120,   210,    90,     40},
+    {120,   210,    90,     40}, // Total distance between initial and final coordinate values cannot be over a certain threshold or game will freeze
     {326,   220,    26,     40},
     {-86,   220,    154,    40},
     {208,   40,     208,    40},
