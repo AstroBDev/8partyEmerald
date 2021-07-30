@@ -5065,7 +5065,7 @@ static void Cmd_openpartyscreen(void)
         {
             gActiveBattler = battlerId;
             *(gBattleStruct->field_58 + gActiveBattler) = gBattlerPartyIndexes[gActiveBattler];
-            *(gBattleStruct->monToSwitchIntoId + gActiveBattler) = 6;
+            *(gBattleStruct->monToSwitchIntoId + gActiveBattler) = PARTY_SIZE;
             gBattleStruct->field_93 &= ~(gBitTable[gActiveBattler]);
 
             BtlController_EmitChoosePokemon(0, hitmarkerFaintBits, *(gBattleStruct->monToSwitchIntoId + (gActiveBattler ^ 2)), ABILITY_NONE, gBattleStruct->field_60[gActiveBattler]);
